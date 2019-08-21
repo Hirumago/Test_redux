@@ -13,3 +13,18 @@ export function getData() {
             });
     };
 }
+
+
+const API = 'http://www.omdbapi.com/?';
+const API_KEY = '&apikey=c34e5420';
+const DEFAULT_QUERY = 'i=';
+
+export function getMovie(id) {
+    return function(dispatch) {
+        return fetch(API + DEFAULT_QUERY + id + API_KEY)
+            .then(response => response.json())
+            .then(json => {
+                dispatch({ type: "MOVIE_LOADED", payload: json });
+            });
+    };
+}

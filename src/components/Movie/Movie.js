@@ -1,58 +1,8 @@
-// import React from "react";
-
-// const Movie = ({id}) => {
-//     fetch('http://www.omdbapi.com/?i='+id+'&apikey=c34e5420')
-//         .then(res => res.json())
-//         .then((data) => {
-//             if (data.Title !== ""){
-//                 return (
-//                     <div>
-//                         <p>{data.Title}</p>
-//                     </div>
-//                 )
-//             }
-//             else{
-//                 return (
-//                     <div>
-//                         <p>Aucun film</p>
-//                     </div>
-//                 )
-//             }
-//         })
-//         .catch(console.log);
-//
-//
-//
-//
-// }
-//
-// export default Movie
-
-// function Movie(id){
-//     fetch('http://www.omdbapi.com/?i='+id+'&apikey=c34e5420')
-//         .then(res => res.json())
-//         .then((data) => {
-//             if (data.Title !== ""){
-//                 return (
-//                     <div>
-//                         <p>{data.Title}</p>
-//                     </div>
-//                 )
-//             }
-//             else{
-//                 return (
-//                     <div>
-//                         <p>Aucun film</p>
-//                     </div>
-//                 )
-//             }
-//         })
-//         .catch(console.log);
-// }
-//
-// export default Movie
-//
 import React, { Component } from 'react';
+
+const API = 'http://www.omdbapi.com/?';
+const API_KEY = '&apikey=c34e5420';
+const DEFAULT_QUERY = 'i=';
 
 class Movie extends Component {
     constructor(props) {
@@ -61,32 +11,59 @@ class Movie extends Component {
         this.state = {
             movie: null,
             isLoading: false,
+            error: null,
         };
     }
 
     componentDidMount() {
-        this.setState({ isLoading: true });
+        if (this.state.movie === null){
+            this.setState({ isLoading: true });
+            fetch(API + DEFAULT_QUERY + this.props.id + API_KEY)
+                .then(res => {
+                    if (res.ok){
+                        return res.json()
+                    }
+                    else{
+                        throw new Error('Erreur');
+                    }
+                })
+                .then((data) => {
+                    this.setState({ movie: data })
+                    this.setState({ isLoading: false });
 
-        fetch('http://www.omdbapi.com/?i='+this.props.id+'&apikey=c34e5420')
-            .then(res => res.json())
-            .then((data) => {
-                this.setState({ movie : data })
-                this.setState({ isLoading: false });
+                })
+                .catch(error => this.setState({error, isLoading: false}));
+        }
 
-            })
-            .catch(console.log);
     }
 
     render(){
-        const {movie, isLoading} = this.state;
+        const {movie, isLoading, error} = this.state;
+
+        if (error){
+            return <p>{error.message}</p>
+        }
 
         if (isLoading){
             return <p>Loading...</p>
         }
 
-        return (
-            <p>{movie.Title}</p>
-        )
+        if (movie !== null){
+            console.log(movie)
+            return (
+                <div className="movie">
+                    <img src={movie.Poster} alt="" className="poster"/>
+                    <p>{movie.Title}</p>
+                </div>
+            )
+        }
+        else{
+            return (
+                <p>Missing</p>
+            )
+        }
+
+
     }
 }
 
