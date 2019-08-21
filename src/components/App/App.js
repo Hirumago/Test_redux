@@ -4,20 +4,12 @@ import List from './../List/List';
 import Form from './../Form/Form';
 import Post from '../Post/Post';
 import Movie from "../Movie/Movie";
+import MovieSearch from "../MovieSearch/MovieSearch";
 
 class App extends Component {
     state = {
         movieId: "tt3896198"
     };
-
-    // componentDidMount() {
-    //     fetch('http://www.omdbapi.com/?i=tt3896198&apikey=c34e5420')
-    //         .then(res => res.json())
-    //         .then((data) => {
-    //             this.setState({ movie: data })
-    //         })
-    //         .catch(console.log)
-    // }
 
     render(){
         return (
@@ -47,7 +39,7 @@ class App extends Component {
                             <Movie id={this.state.movieId} />
                         </div>
                         <div className="card">
-
+                            <MovieSearch/>
                         </div>
                     </div>
 

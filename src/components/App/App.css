@@ -95,4 +95,10 @@ section .movie .poster{
     margin-right: 10px;
 }
 
+section .movie .spinner{
+    position: relative;
+    left: calc(50% - 100px);
+    top: calc(400px / 2 - 100px);
+}
+
 /* general */

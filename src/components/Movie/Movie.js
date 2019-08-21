@@ -1,70 +1,69 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import {getMovie} from "../../js/actions/index";
 
-const API = 'http://www.omdbapi.com/?';
-const API_KEY = '&apikey=c34e5420';
-const DEFAULT_QUERY = 'i=';
+// const API = 'http://www.omdbapi.com/?';
+// const API_KEY = '&apikey=c34e5420';
+// const DEFAULT_QUERY = 'i=';
 
 class Movie extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            movie: null,
-            isLoading: false,
-            error: null,
-        };
+        //
+        // this.state = {
+        //     movie: null,
+        //     isLoading: false,
+        //     error: null,
+        // };
     }
 
     componentDidMount() {
-        if (this.state.movie === null){
-            this.setState({ isLoading: true });
-            fetch(API + DEFAULT_QUERY + this.props.id + API_KEY)
-                .then(res => {
-                    if (res.ok){
-                        return res.json()
-                    }
-                    else{
-                        throw new Error('Erreur');
-                    }
-                })
-                .then((data) => {
-                    this.setState({ movie: data })
-                    this.setState({ isLoading: false });
-
-                })
-                .catch(error => this.setState({error, isLoading: false}));
-        }
-
+        this.props.getMovie(this.props.id);
     }
 
     render(){
-        const {movie, isLoading, error} = this.state;
-
-        if (error){
-            return <p>{error.message}</p>
-        }
-
-        if (isLoading){
-            return <p>Loading...</p>
-        }
-
-        if (movie !== null){
-            console.log(movie)
+        if(this.props.loadingMovie.loading){
             return (
                 <div className="movie">
-                    <img src={movie.Poster} alt="" className="poster"/>
-                    <p>{movie.Title}</p>
+                    <img src="images/spinner.gif" alt="" className="spinner"/>
+                </div>
+            )
+        }
+        else if (this.props.loadingMovie.movie !== null){
+            return (
+                <div className="movie">
+                    <img src={this.props.loadingMovie.movie.Poster} alt="" className="poster"/>
+                    <p>{this.props.loadingMovie.movie.Title}</p>
+                </div>
+            )
+        }
+
+        else if (this.props.loadingMovie.error !== null){
+            return (
+                <div className="movie">
+                    <p>Erreur de chargement...</p>
                 </div>
             )
         }
         else{
             return (
-                <p>Missing</p>
+                <p>test</p>
             )
         }
+
+
 
 
     }
 }
 
-export default Movie;
+function mapStateToProps(state) {
+    return {
+        loadingMovie: state.loadingMovie,
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    { getMovie }
+)(Movie);
