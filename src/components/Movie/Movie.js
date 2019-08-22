@@ -2,23 +2,13 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import {getMovie} from "../../js/actions/index";
 
-// const API = 'http://www.omdbapi.com/?';
-// const API_KEY = '&apikey=c34e5420';
-// const DEFAULT_QUERY = 'i=';
-
 class Movie extends Component {
     constructor(props) {
         super(props);
-        //
-        // this.state = {
-        //     movie: null,
-        //     isLoading: false,
-        //     error: null,
-        // };
     }
 
     componentDidMount() {
-        this.props.getMovie(this.props.id);
+        this.props.getMovie();
     }
 
     render(){
@@ -30,10 +20,26 @@ class Movie extends Component {
             )
         }
         else if (this.props.loadingMovie.movie !== null){
+            let releasedDate = this.props.loadingMovie.movie.Released;
+            if (this.props.loadingMovie.movie.Released !== "N/A"){
+                releasedDate = new Intl.DateTimeFormat('fr-FR', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: '2-digit'
+                }).format(new Date(this.props.loadingMovie.movie.Released))
+            }
             return (
                 <div className="movie">
                     <img src={this.props.loadingMovie.movie.Poster} alt="" className="poster"/>
                     <p>{this.props.loadingMovie.movie.Title}</p>
+                    <p>Rated : {this.props.loadingMovie.movie.Rated}</p>
+                    <p>Sortie : {releasedDate}</p>
+                    <p>Durée : {this.props.loadingMovie.movie.Runtime}</p>
+                    <p>Genre : {this.props.loadingMovie.movie.Genre}</p>
+                    <p>Directeur : {this.props.loadingMovie.movie.Director}</p>
+                    <p>Auteur : {this.props.loadingMovie.movie.Writer}</p>
+                    <p>Acteurs : {this.props.loadingMovie.movie.Actors}</p>
+                    <p>Synopsis (anglais) : {this.props.loadingMovie.movie.Plot}</p>
                 </div>
             )
         }

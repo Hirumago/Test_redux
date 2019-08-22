@@ -24,9 +24,9 @@ const API = 'http://www.omdbapi.com/?';
 const API_KEY = '&apikey=c34e5420';
 const SEARCH_QUERY = 's=';
 const DEFAULT_QUERY = 'i=';
+const DEFAULT_ID = "tt3896198"
 
 export function searchMovie(title){
-
     return function (dispatch) {
         dispatch({type: "SEARCH_MOVIE_LOADING", payload: { loading: true, movies: null, error: null }});
 
@@ -42,11 +42,11 @@ export function searchMovie(title){
 }
 
 
-export function getMovie(id) {
+export function getMovie(id = DEFAULT_ID) {
     return function (dispatch) {
         dispatch({type: "MOVIE_LOADING", payload: { loading: true, movie: null, error: null }});
 
-        return fetch(API + DEFAULT_QUERY + id + API_KEY)
+        return fetch(API + DEFAULT_QUERY + id + API_KEY + "&plot=full")
             .then(response => response.json())
             .then(json => {
                 dispatch({type: "MOVIE_LOADING", payload: { loading: false, movie: json, error: null }});

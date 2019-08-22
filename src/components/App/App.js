@@ -7,10 +7,6 @@ import Movie from "../Movie/Movie";
 import MovieSearch from "../MovieSearch/MovieSearch";
 
 class App extends Component {
-    state = {
-        movieId: "tt3896198"
-    };
-
     render(){
         return (
             <div className="App">
@@ -36,7 +32,7 @@ class App extends Component {
 
                     <div className="big-deck">
                         <div className="card">
-                            <Movie id={this.state.movieId} />
+                            <Movie/>
                         </div>
                         <div className="card">
                             <MovieSearch/>
