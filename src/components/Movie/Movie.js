@@ -8,7 +8,9 @@ class Movie extends Component {
     }
 
     componentDidMount() {
-        this.props.getMovie();
+        if  (this.props.loadingMovie.movie === null){
+            this.props.getMovie();
+        }
     }
 
     render(){

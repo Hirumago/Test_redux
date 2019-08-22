@@ -24,7 +24,7 @@ const API = 'http://www.omdbapi.com/?';
 const API_KEY = '&apikey=c34e5420';
 const SEARCH_QUERY = 's=';
 const DEFAULT_QUERY = 'i=';
-const DEFAULT_ID = "tt3896198"
+const DEFAULT_ID = "tt3896198";
 
 export function searchMovie(title){
     return function (dispatch) {

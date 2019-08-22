@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import './App.css';
-import List from './../List/List';
-import Form from './../Form/Form';
-import Post from '../Post/Post';
-import Movie from "../Movie/Movie";
-import MovieSearch from "../MovieSearch/MovieSearch";
+import { Link } from 'react-router-dom';
+import List from '../../components/List/List';
+import Form from '../../components/Form/Form';
+import Post from '../../components/Post/Post';
+import Movie from "../../components/Movie/Movie";
+import MovieSearch from "../../components/MovieSearch/MovieSearch";
 
-class App extends Component {
+class HomePage extends Component {
     render(){
         return (
-            <div className="App">
-                <header className="App-header">
+            <div className="HomePage">
+                <header className="HomePage-header">
                     <img src="images/logo.png" alt="logo"/>
                 </header>
                 <section>
@@ -41,7 +41,7 @@ class App extends Component {
 
                     <div className="deck">
                         <div className="card">
-
+                            <Link to='/homepage'>Homepage</Link>
                         </div>
                         <div className="card">
 
@@ -59,4 +59,4 @@ class App extends Component {
 
 }
 
-export default App;
+export default HomePage;
