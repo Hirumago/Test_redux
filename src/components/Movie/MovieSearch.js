@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import {searchMovie} from "../../js/actions/index";
+import {searchMovie} from "../../js/actions";
 import {connect} from "react-redux";
-import ListMovies from "../ListMovies/ListMovies";
+import ListMovies from "../List/ListMovies";
 
 class MovieSearch extends Component {
     constructor(props) {

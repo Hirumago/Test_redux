@@ -7,6 +7,9 @@ import './scss/index.css';
 // Router
 import Router from './routes/Router';
 
+// Translator
+
+
 class App extends Component{
     render(){
         return (

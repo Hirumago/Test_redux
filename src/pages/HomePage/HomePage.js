@@ -4,7 +4,7 @@ import List from '../../components/List/List';
 import Form from '../../components/Form/Form';
 import Post from '../../components/Post/Post';
 import Movie from "../../components/Movie/Movie";
-import MovieSearch from "../../components/MovieSearch/MovieSearch";
+import MovieSearch from "../../components/Movie/MovieSearch";
 
 class HomePage extends Component {
     render(){
