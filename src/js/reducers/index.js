@@ -1,10 +1,17 @@
-import { ADD_ARTICLE, DATA_LOADED, MOVIE_LOADING, SEARCH_MOVIE_LOADING } from "../constants/action-types";
+import {
+    ADD_ARTICLE,
+    CHANGE_LANGUAGE,
+    DATA_LOADED,
+    MOVIE_LOADING,
+    SEARCH_MOVIE_LOADING,
+} from "../constants/action-types";
 
 const initialState = {
     articles: [],
     remoteArticles: [],
     loadingMovie: { loading: false, movie: null, error: null },
     loadingMovies: { loading: false, movies: null, error: null },
+    loadingLanguage: { language: null },
 };
 
 
@@ -26,9 +33,16 @@ function rootReducer(state = initialState, action) {
             loadingMovie: state.loadingMovie = action.payload
         });
     }
+
     if (action.type === SEARCH_MOVIE_LOADING) {
         return Object.assign({}, state, {
             loadingMovies: state.loadingMovies = action.payload
+        });
+    }
+
+    if (action.type === CHANGE_LANGUAGE) {
+        return Object.assign({}, state, {
+            loadingLanguage: state.loadingLanguage = action.payload
         });
     }
 

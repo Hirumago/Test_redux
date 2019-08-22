@@ -5,6 +5,8 @@ import Form from '../../components/Form/Form';
 import Post from '../../components/Post/Post';
 import Movie from "../../components/Movie/Movie";
 import MovieSearch from "../../components/Movie/MovieSearch";
+import ButtonsLanguages from "../../components/Button/ButtonsLanguages";
+import { withTranslation } from 'react-i18next';
 
 class HomePage extends Component {
     render(){
@@ -44,7 +46,8 @@ class HomePage extends Component {
                             <Link to='/homepage'>Homepage</Link>
                         </div>
                         <div className="card">
-
+                            <p>{this.props.t('Choisir un langage')}</p>
+                            <ButtonsLanguages/>
                         </div>
                         <div className="card">
 
@@ -59,4 +62,4 @@ class HomePage extends Component {
 
 }
 
-export default HomePage;
+export default withTranslation('app')(HomePage);

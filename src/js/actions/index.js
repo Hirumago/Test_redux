@@ -1,5 +1,7 @@
 import {ADD_ARTICLE} from "../constants/action-types";
 
+
+//articles
 export function addArticle(payload) {
     return {type: ADD_ARTICLE, payload}
 };
@@ -13,10 +15,6 @@ export function getData() {
             });
     };
 }
-
-
-
-
 
 //movie
 
@@ -55,4 +53,16 @@ export function getMovie(id = DEFAULT_ID) {
                 dispatch({type: "MOVIE_LOADING", payload: { loading: false, movie: null, error: error }});
             });
     };
+}
+
+//language
+const DEFAULT_LANGUAGE = 'fr';
+export function changeLanguage(language = DEFAULT_LANGUAGE){
+    return function (dispatch){
+        // return useTranslation().changeLanguage(language).then((response) => {
+        //     console.log(response);
+        //     dispatch({type: "CHANGE_LANGUAGE", payload: { language: language }});
+        // })
+        dispatch({type: "CHANGE_LANGUAGE", payload: { language: language }});
+    }
 }
