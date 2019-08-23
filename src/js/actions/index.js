@@ -59,10 +59,6 @@ export function getMovie(id = DEFAULT_ID) {
 const DEFAULT_LANGUAGE = 'fr';
 export function changeLanguage(language = DEFAULT_LANGUAGE){
     return function (dispatch){
-        // return useTranslation().changeLanguage(language).then((response) => {
-        //     console.log(response);
-        //     dispatch({type: "CHANGE_LANGUAGE", payload: { language: language }});
-        // })
         dispatch({type: "CHANGE_LANGUAGE", payload: { language: language }});
     }
 }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {changeLanguage} from "../../js/actions/index";
-import {useTranslation} from "react-i18next";
+import i18n from '../../translation/i18n';
 
 class ButtonsLanguages extends Component {
     constructor(props) {
@@ -15,9 +15,8 @@ class ButtonsLanguages extends Component {
     }
 
     changeLanguage = async (lang) =>{
-        console.log(lang)
-        const { i18n } = useTranslation();
         i18n.changeLanguage(lang);
+        this.props.changeLanguage(lang)
     }
 
     render() {
