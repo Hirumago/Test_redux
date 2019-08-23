@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Movie from "../../components/Movie/Movie";
 import { withTranslation } from 'react-i18next';
+import ButtonModal from "../../components/Button/ButtonModal";
 
 class HomePage2 extends Component {
     render(){
@@ -19,6 +20,15 @@ class HomePage2 extends Component {
                         <div className="card">
                             <Link to='/'>Index</Link>
                             <p>{this.props.t("Un test pour la détection de language")}</p>
+                        </div>
+                    </div>
+                    <div className="deck">
+                        <div className="card">
+                            <ButtonModal content="citation" titleModal="Ouvrir une modale d'un homme fatigué"/>
+                            <ButtonModal content="citation2" titleModal="Ouvrir une modale d'un homme désolé"/>
+                        </div>
+                        <div className="card">
+
                         </div>
                     </div>
                 </section>

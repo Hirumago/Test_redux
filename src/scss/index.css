@@ -1,35 +1,35 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 /* body */
 body {
-  margin: 0;
+    margin: 0;
 }
 
 /* header */
 header {
-  height: 50px;
-  width: 100vw;
-  position: fixed;
-  background-color: #ebebeb;
-  z-index: 2;
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.3), 0 6px 20px 0 rgba(255, 255, 255, 0.3);
+    height: 50px;
+    width: 100vw;
+    position: fixed;
+    background-color: #ebebeb;
+    z-index: 2;
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.3), 0 6px 20px 0 rgba(255, 255, 255, 0.3);
 }
 
 header img {
-  height: 45px;
-  width: 77px;
+    height: 45px;
+    width: 77px;
 }
 
 /* footer */
@@ -37,88 +37,118 @@ header img {
 /* section */
 
 section {
-  background-color: #282c34;
-  min-height: calc(100vh - 50px - 50px);
-  position: relative;
-  z-index: 1;
-  top: 50px;
-  padding: 25px;
+    background-color: #282c34;
+    min-height: calc(100vh - 50px - 50px);
+    position: relative;
+    z-index: 1;
+    top: 50px;
+    padding: 25px;
 }
 
 section h1{
-  color: #ebebeb;
-  text-align: center;
-  margin-bottom: 25px;
+    color: #ebebeb;
+    text-align: center;
+    margin-bottom: 25px;
 }
 
 section h2{
-  margin: 0;
+    margin: 0;
 }
 
 section .deck, section .big-deck{
-  margin-bottom: 25px;
-  width: calc(100vw - 50px);
-  display: grid;
+    margin-bottom: 25px;
+    width: calc(100vw - 50px);
+    display: grid;
 }
 
 section .deck{
-  grid-template-columns: repeat(3, calc(33.33vw - 50px / 3));
+    grid-template-columns: repeat(3, calc(33.33vw - 50px / 3));
 }
 
 section .big-deck{
-  grid-template-columns: repeat(3, calc(50vw - 50px / 2));
+    grid-template-columns: repeat(3, calc(50vw - 50px / 2));
 }
 
 section .deck .card,  section .big-deck .card{
-  height: 200px;
-  background-color: #ebebeb;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
-  padding: 10px;
-  overflow: auto;
+    height: 200px;
+    background-color: #ebebeb;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    overflow: auto;
 }
 
 section .deck .card:first-child{
-  grid-column: 1;
+    grid-column: 1;
 }
 section .deck .card:nth-of-type(2){
-  grid-column: 2;
+    grid-column: 2;
 }
 section .deck .card:nth-of-type(3){
-  grid-column: 3;
+    grid-column: 3;
 }
 
 section .big-deck .card {
-  height: 400px;
+    height: 400px;
 }
 
 section .deck .card:nth-of-type(3n + 2), section .deck .card:nth-of-type(3n + 3){
-  margin-left: 25px;
+    margin-left: 25px;
 }
 
 section .big-deck .card:nth-of-type(even){
-  margin-left: 25px;
+    margin-left: 25px;
 }
 
 section .movie p{
-  margin: 0;
-  margin-bottom: 10px;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
 section .movie .poster{
-  float: left;
-  margin-right: 10px;
+    float: left;
+    margin-right: 10px;
 }
 
 section .deck .spinner{
-  position: relative;
-  left: calc(50% - 100px);
-  top: calc(200px / 2 - 100px);
+    position: relative;
+    left: calc(50% - 100px);
+    top: calc(200px / 2 - 100px);
 }
 
 section .big-deck .spinner{
-  position: relative;
-  left: calc(50% - 100px);
-  top: calc(400px / 2 - 100px);
+    position: relative;
+    left: calc(50% - 100px);
+    top: calc(400px / 2 - 100px);
 }
 
+/* modal */
+.ReactModal__Overlay--after-open{
+    z-index: 1;
+}
+
+.closeModal{
+    float: right;
+    border: none;
+    background-color: #282c34;
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    color: #ebebeb;
+}
+
+.modalTitle{
+    margin-right: 30px;
+}
+
+
 /* general */
+
+blockquote {
+    margin: 0;
+}
+
+blockquote p {
+    padding: 15px;
+    background: #eee;
+    border-radius: 5px;
+}
