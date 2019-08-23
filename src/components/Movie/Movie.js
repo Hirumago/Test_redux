@@ -3,10 +3,6 @@ import { connect } from "react-redux";
 import {getMovie} from "../../js/actions/index";
 
 class Movie extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         if  (this.props.loadingMovie.movie === null){
             this.props.getMovie();

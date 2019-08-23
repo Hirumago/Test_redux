@@ -2,10 +2,6 @@ import React, {Component} from "react";
 import Iframe from 'react-iframe'
 
 class QuoteMv extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>

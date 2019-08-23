@@ -30,6 +30,26 @@ class HomePage2 extends Component {
                         <div className="card">
 
                         </div>
+                        <div className="card">
+
+                        </div>
+                    </div>
+                    <div className="mini-deck">
+                        <div className="card">
+
+                        </div>
+                        <div className="card">
+
+                        </div>
+                        <div className="card">
+
+                        </div>
+                        <div className="card">
+
+                        </div>
+                        <div className="card">
+
+                        </div>
                     </div>
                 </section>
             </div>

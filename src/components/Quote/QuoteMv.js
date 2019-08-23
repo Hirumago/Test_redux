@@ -1,10 +1,6 @@
 import React, {Component} from "react";
 
 class QuoteMv extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>

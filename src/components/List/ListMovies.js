@@ -3,10 +3,6 @@ import { connect } from "react-redux";
 import {getMovie} from "../../js/actions";
 
 class ListMovies extends Component{
-    constructor(props){
-        super(props);
-    }
-
     changeMovie(id){
         this.props.getMovie(id)
     }

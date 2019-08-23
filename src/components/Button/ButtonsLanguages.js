@@ -4,12 +4,7 @@ import {changeLanguage} from "../../js/actions/index";
 import i18n from '../../translation/i18n';
 
 class ButtonsLanguages extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
-        console.log(this.props.loadingLanguage.languageSettings)
         if (this.props.loadingLanguage.languageSettings === null) {
             this.props.changeLanguage();
         }

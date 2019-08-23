@@ -26,9 +26,8 @@ class ConnectedForm extends Component {
     handleSubmit(event) {
         event.preventDefault();
         const {title} = this.state;
-        // let's add a check for forbidden words
         const forbiddenWords = ['spam', 'money'];
-        const foundWord = forbiddenWords.filter(word => title.includes(word))
+        forbiddenWords.filter(word => title.includes(word))
         if (title !== "") {
             const id = uuidv1();
             this.props.addArticle({title, id});

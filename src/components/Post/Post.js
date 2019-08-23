@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getData } from "../../js/actions/index";
 export class Post extends Component {
-    constructor() {
-        super();
-    }
     componentDidMount() {
         if (this.props.articles.length === 0){
             this.props.getData();
