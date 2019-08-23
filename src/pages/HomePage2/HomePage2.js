@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import Movie from "../../components/Movie/Movie";
+import { withTranslation } from 'react-i18next';
 
 class HomePage2 extends Component {
     render(){
@@ -17,6 +18,7 @@ class HomePage2 extends Component {
                         </div>
                         <div className="card">
                             <Link to='/'>Index</Link>
+                            <p>{this.props.t("Un test pour la détection de language")}</p>
                         </div>
                     </div>
                 </section>
@@ -26,4 +28,4 @@ class HomePage2 extends Component {
 
 }
 
-export default HomePage2;
+export default withTranslation('app') (HomePage2);

@@ -11,7 +11,7 @@ const initialState = {
     remoteArticles: [],
     loadingMovie: { loading: false, movie: null, error: null },
     loadingMovies: { loading: false, movies: null, error: null },
-    loadingLanguage: { language: null },
+    loadingLanguage: { languageSettings: null },
 };
 
 

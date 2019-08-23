@@ -6,7 +6,9 @@ export class Post extends Component {
         super();
     }
     componentDidMount() {
-        this.props.getData();
+        if (this.props.articles.length === 0){
+            this.props.getData();
+        }
     }
     render() {
         return (

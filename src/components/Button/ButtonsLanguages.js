@@ -9,31 +9,61 @@ class ButtonsLanguages extends Component {
     }
 
     componentDidMount() {
-        if (this.props.loadingLanguage.language === null) {
+        console.log(this.props.loadingLanguage.languageSettings)
+        if (this.props.loadingLanguage.languageSettings === null) {
             this.props.changeLanguage();
         }
     }
 
     changeLanguage = async (lang) =>{
-        i18n.changeLanguage(lang);
+        i18n.changeLanguage(lang.short);
         this.props.changeLanguage(lang)
     }
 
     render() {
-        let availableLanguages = ['fr', 'en', 'es'];
-        let indexLanguagesApplication = availableLanguages.indexOf(this.props.loadingLanguage.language);
-        availableLanguages.splice(indexLanguagesApplication, 1);
+        if (this.props.loadingLanguage.languageSettings !== null){
+            let availableLanguages = [
+                {short: 'fr', long: 'Français', acronym:'fr_FR'},
+                {short: 'en', long: 'English', acronym:'en_EN'},
+                {short: 'es', long: 'Spanish', acronym:'es_ES'},
+            ]
 
-        return (
-            <div>
-                {
-                    availableLanguages.map((el, index) => (
-                        <button key={index} onClick={() => this.changeLanguage(el)}>{el}</button>
-                    ))
-                }
-            </div>
+            let indexLanguagesApplication = null;
+            switch (this.props.loadingLanguage.languageSettings.short){
+                case availableLanguages[0].short :
+                    indexLanguagesApplication = 0;
+                    break;
+                case availableLanguages[1].short :
+                    indexLanguagesApplication = 1;
+                    break;
+                case availableLanguages[2].short :
+                    indexLanguagesApplication = 2;
+                    break;
+                default:
+                    indexLanguagesApplication = null;
+            }
 
-        )
+            availableLanguages.splice(indexLanguagesApplication, 1);
+
+            return (
+                <div>
+                    {
+                        availableLanguages.map((el, index) => (
+                            <button key={index} onClick={() => this.changeLanguage(el)}>{el.long}</button>
+                        ))
+                    }
+                </div>
+
+            )
+        }
+        else{
+            return (
+                <div>
+                    <img src="images/spinner.gif" alt="" className="spinner"/>
+                </div>
+            )
+        }
+
     }
 }
 

@@ -109,7 +109,13 @@ section .movie .poster{
   margin-right: 10px;
 }
 
-section .movie .spinner{
+section .deck .spinner{
+  position: relative;
+  left: calc(50% - 100px);
+  top: calc(200px / 2 - 100px);
+}
+
+section .big-deck .spinner{
   position: relative;
   left: calc(50% - 100px);
   top: calc(400px / 2 - 100px);

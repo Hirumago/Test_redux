@@ -56,9 +56,9 @@ export function getMovie(id = DEFAULT_ID) {
 }
 
 //language
-const DEFAULT_LANGUAGE = 'fr';
+const DEFAULT_LANGUAGE = {short: 'fr', long: 'Français', acronym:'fr_FR'};
 export function changeLanguage(language = DEFAULT_LANGUAGE){
     return function (dispatch){
-        dispatch({type: "CHANGE_LANGUAGE", payload: { language: language }});
+        dispatch({type: "CHANGE_LANGUAGE", payload: { languageSettings: language }});
     }
 }
