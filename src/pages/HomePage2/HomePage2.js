@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import Movie from "../../components/Movie/Movie";
 import { withTranslation } from 'react-i18next';
 import ButtonModal from "../../components/Button/ButtonModal";
+import Header from "../../components/Header/Header";
 
 class HomePage2 extends Component {
     render(){
         return (
             <div className="HomePage2">
-                <header className="HomePage2-header">
-                    <img src="images/logo.png" alt="logo"/>
-                </header>
+                <Header location="HomePage2"/>
                 <section>
                     <h1>Test redux page 2</h1>
                     <div className="big-deck">

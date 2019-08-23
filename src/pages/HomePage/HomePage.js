@@ -7,14 +7,13 @@ import Movie from "../../components/Movie/Movie";
 import MovieSearch from "../../components/Movie/MovieSearch";
 import ButtonsLanguages from "../../components/Button/ButtonsLanguages";
 import { withTranslation } from 'react-i18next';
+import Header from "../../components/Header/Header";
 
 class HomePage extends Component {
     render(){
         return (
             <div className="HomePage">
-                <header className="HomePage-header">
-                    <img src="images/logo.png" alt="logo"/>
-                </header>
+                <Header location="HomePage"/>
                 <section>
                     <h1>Test redux</h1>
                     <div className="deck">
