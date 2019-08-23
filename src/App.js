@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Provider } from 'react-redux';
 import store from './js/store/index';
 
-import './scss/index.css';
+import './scss/index.scss';
 
 // Router
 import Router from './routes/Router';
