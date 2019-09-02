@@ -25,8 +25,8 @@ class Header extends Component {
                 <img src="images/logo.png" alt="logo"/>
                 <ul>
                     {
-                        links.map((el) =>
-                            <li className={el.className}>
+                        links.map((el, i) =>
+                            <li className={el.className} key={i}>
                                 <Link to={el.href}>{el.title}</Link>
                             </li>
                         )

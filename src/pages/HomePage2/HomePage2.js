@@ -4,6 +4,7 @@ import Movie from "../../components/Movie/Movie";
 import { withTranslation } from 'react-i18next';
 import ButtonModal from "../../components/Button/ButtonModal";
 import Header from "../../components/Header/Header";
+import MovieMini from "../../components/Movie/MovieMini";
 
 class HomePage2 extends Component {
     render(){
@@ -35,10 +36,10 @@ class HomePage2 extends Component {
                     </div>
                     <div className="mini-deck">
                         <div className="card">
-
+                            <MovieMini/>
                         </div>
                         <div className="card">
-
+                            <MovieMini id="tt4244162"/>
                         </div>
                         <div className="card">
 

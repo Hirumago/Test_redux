@@ -4,6 +4,7 @@ import {
     DATA_LOADED,
     MOVIE_LOADING,
     SEARCH_MOVIE_LOADING,
+    MINI_MOVIES_LOADING
 } from "../constants/action-types";
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
     loadingMovie: { loading: false, movie: null, error: null },
     loadingMovies: { loading: false, movies: null, error: null },
     loadingLanguage: { languageSettings: null },
+    loadingMiniMovies: {},
 };
 
 
@@ -46,6 +48,33 @@ function rootReducer(state = initialState, action) {
         });
     }
 
+    if (action.type === MINI_MOVIES_LOADING) {
+        // state.loadingMiniMovies[action.payload.id] = action.payload.payload;
+        // let originalState = state.loadingMiniMovies;
+        // originalState.splice(action.payload.id, 0, action.payload.payload);
+        // originalState[action.payload.id] = action.payload.payload;
+
+        // console.log(originalState)
+
+        // return Object.assign({}, state, {
+        //     // loadingMiniMovies: state.loadingMiniMovies.slice(action.payload.id, 0, action.payload.payload)
+        //     // loadingMiniMovies: state.loadingMiniMovies.concat(action.payload)
+        //     // loadingMiniMovies: state.loadingMiniMovies
+        //     // loadingMiniMovies: originalState[action.payload.id] = action.payload.payload
+        //     // loadingMiniMovies: state.loadingMiniMovies = originalState
+        //     // loadingMiniMovies: state.loadingMiniMovies = originalState
+        //     // loadingMiniMovies: state.loadingMiniMovies.concat(action.payload)
+        // });
+
+        // let test = {[action.payload.id] : action.payload.payload}
+        let originalState = state.loadingMiniMovies;
+        originalState[action.payload.id] = action.payload.payload;
+
+        return Object.assign({}, state, {
+            // [action.payload.id] : action.payload.payload
+            loadingMiniMovies : state.loadingMiniMovies = originalState
+        });
+    }
     return state;
 }
 
