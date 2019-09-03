@@ -13,7 +13,7 @@ const initialState = {
     loadingMovie: { loading: false, movie: null, error: null },
     loadingMovies: { loading: false, movies: null, error: null },
     loadingLanguage: { languageSettings: null },
-    loadingMiniMovies: {},
+    loadingMiniMovies: [],
 };
 
 
@@ -67,13 +67,16 @@ function rootReducer(state = initialState, action) {
         // });
 
         // let test = {[action.payload.id] : action.payload.payload}
-        let originalState = state.loadingMiniMovies;
-        originalState[action.payload.id] = action.payload.payload;
+        // let originalState = state.loadingMiniMovies;
+        // originalState[action.payload.id] = action.payload.payload;
+        //
+        // return Object.assign({}, state, {
+        //     // [action.payload.id] : action.payload.payload
+        //     // loadingMiniMovies : state.loadingMiniMovies[action.payload.id] = action.payload.payload
+        //     loadingMiniMovies : state.loadingMiniMovies.concat(action.payload)
+        // });
 
-        return Object.assign({}, state, {
-            // [action.payload.id] : action.payload.payload
-            loadingMiniMovies : state.loadingMiniMovies = originalState
-        });
+        return {...state, loadingMiniMovies : {...state.loadingMiniMovies, [action.payload.id] : action.payload.payload}}
     }
     return state;
 }

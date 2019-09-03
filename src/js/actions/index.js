@@ -55,7 +55,7 @@ export function getMovie(id = DEFAULT_ID) {
     };
 }
 
-export function getMiniMovie(id = DEFAULT_ID) {
+export function getMiniMovie(id) {
     return function (dispatch) {
         dispatch({type: "MINI_MOVIES_LOADING", payload: {id: id, payload: {loading: true, movie: null, error: null}}});
 

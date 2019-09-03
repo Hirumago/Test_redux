@@ -4,17 +4,18 @@ import {getMiniMovie} from "../../js/actions/index";
 
 class MovieMini extends Component {
     componentDidMount() {
-        // if (this.props.loadingMiniMovies[this.props.id] === undefined){
+        if (this.props.loadingMiniMovies[this.props.id] === undefined){
             this.props.getMiniMovie(this.props.id);
-        // }
-        // else if(this.props.loadingMiniMovies[this.props.id] !== undefined && !this.props.loadingMiniMovies[this.props.id].payload){
-        //     this.props.getMiniMovie(this.props.id);
-        // }
+        }
+    }
+
+    componentDidUpdate(){
+        if (this.props.loadingMiniMovies[this.props.id] === undefined){
+            this.props.getMiniMovie(this.props.id);
+        }
     }
 
     render(){
-        console.log(this.props.loadingMiniMovies)
-
         if (this.props.loadingMiniMovies[this.props.id] === undefined){
             return (
                 <div className="movie">
@@ -22,24 +23,24 @@ class MovieMini extends Component {
                 </div>
             )
         }
-        else if(this.props.loadingMiniMovies[this.props.id] !== undefined && !this.props.loadingMiniMovies[this.props.id].payload){
-            if(this.props.loadingMiniMovies[this.props.id].payload.loading){
+        else{
+            if(this.props.loadingMiniMovies[this.props.id].loading){
                 return (
                     <div className="movie">
                         <img src="images/spinner.gif" alt="" className="spinner"/>
                     </div>
                 )
             }
-            else if (this.props.loadingMiniMovies[this.props.id].payload.movie !== null){
+            else if (this.props.loadingMiniMovies[this.props.id].movie !== null){
                 return (
                     <div className="movie">
-                        <p>{this.props.loadingMiniMovies[this.props.id].payload.movie.Title}</p>
-                        <p>Synopsis (anglais) : {this.props.loadingMiniMovies[this.props.id].payload.movie.Plot}</p>
+                        <p>{this.props.loadingMiniMovies[this.props.id].movie.Title}</p>
+                        <p>Synopsis (anglais) : {this.props.loadingMiniMovies[this.props.id].movie.Plot}</p>
                     </div>
                 )
             }
 
-            else if (this.props.loadingMiniMovies[this.props.id].payload.error !== null){
+            else if (this.props.loadingMiniMovies[this.props.id].error !== null){
                 return (
                     <div className="movie">
                         <p>Erreur de chargement...</p>
@@ -52,6 +53,7 @@ class MovieMini extends Component {
                 )
             }
         }
+
     }
 }
 
